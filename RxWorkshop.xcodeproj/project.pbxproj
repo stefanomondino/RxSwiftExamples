@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0BCD3F28D79A9056903BD5A6 /* Pods_RxWorkshop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC0ACD5F935FC9F508EBFC6 /* Pods_RxWorkshop.framework */; };
+		7B8A1E241EF2783700EF2BE2 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8A1E231EF2783700EF2BE2 /* Operators.swift */; };
+		7B8A1E261EF279CB00EF2BE2 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8A1E251EF279CB00EF2BE2 /* FormViewController.swift */; };
 		7B8AEEF81EF12ED000C00D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AEEF71EF12ED000C00D2E /* AppDelegate.swift */; };
 		7B8AEEFA1EF12ED000C00D2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AEEF91EF12ED000C00D2E /* ViewController.swift */; };
 		7B8AEEFD1EF12ED000C00D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8AEEFB1EF12ED000C00D2E /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B8A1E231EF2783700EF2BE2 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		7B8A1E251EF279CB00EF2BE2 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		7B8AEEF41EF12ED000C00D2E /* RxWorkshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxWorkshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8AEEF71EF12ED000C00D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B8AEEF91EF12ED000C00D2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 			children = (
 				7B8AEEF71EF12ED000C00D2E /* AppDelegate.swift */,
 				7B8AEEF91EF12ED000C00D2E /* ViewController.swift */,
+				7B8A1E231EF2783700EF2BE2 /* Operators.swift */,
+				7B8A1E251EF279CB00EF2BE2 /* FormViewController.swift */,
 				7B8AEF0B1EF1826A00C00D2E /* MapViewController.swift */,
 				7B8AEF091EF16A6B00C00D2E /* RxLocationManager.swift */,
 				7B8AEEFB1EF12ED000C00D2E /* Main.storyboard */,
@@ -217,7 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8A1E261EF279CB00EF2BE2 /* FormViewController.swift in Sources */,
 				7B8AEEFA1EF12ED000C00D2E /* ViewController.swift in Sources */,
+				7B8A1E241EF2783700EF2BE2 /* Operators.swift in Sources */,
 				7B8AEEF81EF12ED000C00D2E /* AppDelegate.swift in Sources */,
 				7B8AEF0A1EF16A6B00C00D2E /* RxLocationManager.swift in Sources */,
 				7B8AEF0C1EF1826A00C00D2E /* MapViewController.swift in Sources */,

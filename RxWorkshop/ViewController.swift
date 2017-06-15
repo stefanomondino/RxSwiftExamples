@@ -19,8 +19,9 @@ enum Examples {
     case image
     case query
     case map
+    case form
     static var all:[Examples] {
-        return [.apiSimple, .autoCounter, .clock, .chronograph, .image, .query, .map]
+        return [.apiSimple, .autoCounter, .clock, .chronograph, .image, .query, .map, .form]
     }
     var name:String {
         switch self {
@@ -31,6 +32,7 @@ enum Examples {
         case .image : return "Remote background image"
         case .query : return "Search TVMaze"
         case .map : return "Location and map"
+        case .form : return "Form"
         }
     }
     
@@ -43,6 +45,7 @@ enum Examples {
         case .image : return { vc.test_image()}
         case .query : return { vc.test_query()}
         case .map : return {vc.performSegue(withIdentifier: "mapSegue", sender: nil)}
+        case .form : return {vc.performSegue(withIdentifier: "formSegue", sender: nil)}
         }
     }
     
@@ -100,6 +103,7 @@ class ViewController: UIViewController {
     
     
     func test_auto_counter() {
+        self.lbl_text.text = "Guarda i log!"
         Observable<Int>
             .interval(1, scheduler: MainScheduler.instance)
             .subscribe(onNext: {
@@ -161,10 +165,11 @@ class ViewController: UIViewController {
             .map{ json in
                 let array = json as? [[String:Any]]
                 if let first = array?.first?["show"] as?  [String:Any],
-                    let title = first["summary"] as? String
+                    let summary = first["summary"] as? String,
+                    let title = first["name"] as? String
                 {
-                    
-                    return  title
+               
+                    return  "\(title.capitalized)\n\n\(summary)"
                 }
                 
                 return query.characters.count > 0 ? "n/a" : "Cerca qualcosa!"
@@ -182,6 +187,12 @@ class ViewController: UIViewController {
             .disposed(by: self.disposeBag)
     }
     
+    
+    let currentText = Variable("")
+    func test_data_binding() {
+        
+        (self.txt_field.rx.textInput <-> currentText).disposed(by: disposeBag)
+    }
     
     
 }
