@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  RxWorkshop
 //
 //  Created by Stefano Mondino on 14/06/17.
@@ -36,7 +36,7 @@ enum Examples {
         }
     }
     
-    func action(for vc:ViewController) -> ()->() {
+    func action(for vc:MainViewController) -> ()->() {
         switch self {
         case .apiSimple : return {vc.test_api_simple()}
         case .autoCounter : return {vc.test_auto_counter()}
@@ -51,7 +51,7 @@ enum Examples {
     
 }
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     var disposeBag = DisposeBag()
     @IBOutlet weak var lbl_text: UILabel!
     @IBOutlet weak var txt_field: UITextField!
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lbl_text.text = "CIAO!"
-        
+        self.clear()
         
     }
     
@@ -74,14 +74,18 @@ class ViewController: UIViewController {
         let actionSheet = UIAlertController(title: "Menu", message: "Cosa vuoi fare?", preferredStyle: .actionSheet)
         Examples.all.forEach { example in
             actionSheet.addAction(UIAlertAction(title: example.name, style: .default, handler: {[weak self] _ in
-                self?.disposeBag = DisposeBag()
+                self?.clear()
                 example.action(for: self!)()
             }))
         }
         actionSheet.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
-    
+    func clear() {
+        self.disposeBag = DisposeBag()
+        self.txt_field.isHidden = true
+        self.img_background.image = nil
+    }
     func test_api_simple() {
         self.lbl_text.text = "Caricamento in corso..."
         URLSession
@@ -141,6 +145,8 @@ class ViewController: UIViewController {
     
     
     func test_image() {
+        self.lbl_text.text = ""
+        self.img_background.alpha = 1
         if let url = URL(string:"https://lorempixel.com/750/1336/cats/") {
             let request = URLRequest(url: url)
             URLSession.shared.rx.data(request: request).map {
@@ -177,7 +183,7 @@ class ViewController: UIViewController {
     }
     
     func test_query() {
-        
+        self.txt_field.isHidden = false
         self.txt_field.rx.text.asObservable()
             .debounce(1, scheduler: MainScheduler.instance)
             .map { $0 ?? ""}

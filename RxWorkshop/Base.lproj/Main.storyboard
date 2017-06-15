@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-754" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RxWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="RxWorkshop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -163,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6t-kN-LlJ">
-                                <rect key="frame" x="20" y="578" width="335" height="69"/>
+                                <rect key="frame" x="20" y="549.5" width="335" height="97.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSw-ks-ozG">
                                         <rect key="frame" x="8" y="40" width="319" height="21"/>
@@ -177,16 +177,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtU-M7-8Qm">
+                                        <rect key="frame" x="8" y="69" width="319" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="QSw-ks-ozG" secondAttribute="bottom" constant="8" id="7yE-ld-WCQ"/>
                                     <constraint firstItem="itH-ZD-lfl" firstAttribute="top" secondItem="K6t-kN-LlJ" secondAttribute="top" constant="8" id="FJN-wV-J0K"/>
                                     <constraint firstItem="itH-ZD-lfl" firstAttribute="leading" secondItem="QSw-ks-ozG" secondAttribute="leading" id="HMy-gt-Nb9"/>
                                     <constraint firstItem="QSw-ks-ozG" firstAttribute="leading" secondItem="K6t-kN-LlJ" secondAttribute="leading" constant="8" id="cJr-7g-bCz"/>
+                                    <constraint firstAttribute="bottom" secondItem="qtU-M7-8Qm" secondAttribute="bottom" constant="8" id="cQc-q7-Mzp"/>
+                                    <constraint firstItem="qtU-M7-8Qm" firstAttribute="leading" secondItem="QSw-ks-ozG" secondAttribute="leading" id="cwi-aX-USf"/>
                                     <constraint firstAttribute="trailing" secondItem="QSw-ks-ozG" secondAttribute="trailing" constant="8" id="dZV-iG-2IX"/>
                                     <constraint firstItem="itH-ZD-lfl" firstAttribute="trailing" secondItem="QSw-ks-ozG" secondAttribute="trailing" id="gix-Xr-R4n"/>
+                                    <constraint firstItem="qtU-M7-8Qm" firstAttribute="top" secondItem="QSw-ks-ozG" secondAttribute="bottom" constant="8" id="k8Z-dJ-dD4"/>
                                     <constraint firstItem="QSw-ks-ozG" firstAttribute="top" secondItem="itH-ZD-lfl" secondAttribute="bottom" constant="8" id="vOt-xx-ONW"/>
+                                    <constraint firstItem="qtU-M7-8Qm" firstAttribute="trailing" secondItem="QSw-ks-ozG" secondAttribute="trailing" id="vl8-30-YyZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -202,6 +211,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lbl_cupertino" destination="qtU-M7-8Qm" id="Jnt-46-XAl"/>
                         <outlet property="lbl_distance" destination="QSw-ks-ozG" id="hxI-Gy-sIf"/>
                         <outlet property="lbl_place" destination="itH-ZD-lfl" id="TBv-7N-etS"/>
                         <outlet property="mapView" destination="PQ9-Ye-irg" id="dtP-B3-GIB"/>
